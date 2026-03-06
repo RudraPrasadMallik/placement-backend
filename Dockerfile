@@ -1,26 +1,22 @@
-# Use a JDK image that includes Maven
-FROM maven:3.8.4-openjdk-17-slim AS builder
+# Build stage - Use a verified Maven + JDK image
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
 
 WORKDIR /app
 
-# Copy pom.xml first (for better layer caching)
+# Copy pom.xml and download dependencies (for caching)
 COPY pom.xml .
-
-# Download dependencies (this layer caches unless pom.xml changes)
 RUN mvn dependency:go-offline -B
 
-# Copy source code
+# Copy source and build
 COPY src ./src
-
-# Build the application
 RUN mvn clean package -DskipTests
 
-# Second stage: create the runtime image
-FROM openjdk:17-slim
+# Runtime stage - Use a verified slim JRE image
+FROM eclipse-temurin:17-jre-alpine
 
 WORKDIR /app
 
-# Copy the JAR from the builder stage
+# Copy the JAR from builder
 COPY --from=builder /app/target/*.jar app.jar
 
 EXPOSE 8080
