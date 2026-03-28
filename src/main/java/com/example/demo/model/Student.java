@@ -1,33 +1,30 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "students")
 public class Student extends User {
     
-    private String registrationNumber;
+    private String rollNumber;
     private String department;
-    private String semester;
+    private String year;
     private Double cgpa;
-    private Integer backlogs;
-    private String tenthPercentage;
-    private String twelfthPercentage;
-    private String graduationPercentage;
-    private String skills;
     private String resumeUrl;
-    private String address;
+    private String placementStatus = "NOT_PLACED";
     
-    private String placementStatus = "NOT_PLACED"; // NOT_PLACED, PLACED, INTERVIEW_SCHEDULED
-    
-    // Getters and Setters
-    public String getRegistrationNumber() {
-        return registrationNumber;
+    public Student() {
+        this.setRole(Role.STUDENT);
     }
     
-    public void setRegistrationNumber(String registrationNumber) {
-        this.registrationNumber = registrationNumber;
+    // Getters and Setters
+    public String getRollNumber() {
+        return rollNumber;
+    }
+    
+    public void setRollNumber(String rollNumber) {
+        this.rollNumber = rollNumber;
     }
     
     public String getDepartment() {
@@ -38,12 +35,12 @@ public class Student extends User {
         this.department = department;
     }
     
-    public String getSemester() {
-        return semester;
+    public String getYear() {
+        return year;
     }
     
-    public void setSemester(String semester) {
-        this.semester = semester;
+    public void setYear(String year) {
+        this.year = year;
     }
     
     public Double getCgpa() {
@@ -54,60 +51,12 @@ public class Student extends User {
         this.cgpa = cgpa;
     }
     
-    public Integer getBacklogs() {
-        return backlogs;
-    }
-    
-    public void setBacklogs(Integer backlogs) {
-        this.backlogs = backlogs;
-    }
-    
-    public String getTenthPercentage() {
-        return tenthPercentage;
-    }
-    
-    public void setTenthPercentage(String tenthPercentage) {
-        this.tenthPercentage = tenthPercentage;
-    }
-    
-    public String getTwelfthPercentage() {
-        return twelfthPercentage;
-    }
-    
-    public void setTwelfthPercentage(String twelfthPercentage) {
-        this.twelfthPercentage = twelfthPercentage;
-    }
-    
-    public String getGraduationPercentage() {
-        return graduationPercentage;
-    }
-    
-    public void setGraduationPercentage(String graduationPercentage) {
-        this.graduationPercentage = graduationPercentage;
-    }
-    
-    public String getSkills() {
-        return skills;
-    }
-    
-    public void setSkills(String skills) {
-        this.skills = skills;
-    }
-    
     public String getResumeUrl() {
         return resumeUrl;
     }
     
     public void setResumeUrl(String resumeUrl) {
         this.resumeUrl = resumeUrl;
-    }
-    
-    public String getAddress() {
-        return address;
-    }
-    
-    public void setAddress(String address) {
-        this.address = address;
     }
     
     public String getPlacementStatus() {

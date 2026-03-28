@@ -28,8 +28,12 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers("/api/student/**").permitAll()
-                .anyRequest().authenticated()
+                .requestMatchers("/api/students/**").permitAll()
+                .requestMatchers("/api/companies/**").permitAll()
+                .requestMatchers("/api/contact/**").permitAll()
+                .requestMatchers("/api/statistics/**").permitAll()
+                .requestMatchers("/uploads/**").permitAll()
+                .anyRequest().permitAll()
             )
             .formLogin(form -> form.disable())
             .httpBasic(basic -> basic.disable());
@@ -40,9 +44,10 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedOrigins(Arrays.asList("http://localhost:5173", "http://localhost:3000"));
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
+        configuration.setAllowCredentials(true);
         
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
