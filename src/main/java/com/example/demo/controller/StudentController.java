@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.StudentRegistrationDTO;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import com.example.demo.model.Student;
 import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,8 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/students")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {"http://localhost:5173", "http://localhost:3000"}, allowCredentials = "true")
+//@Tag(name = "Student Management", description = "Endpoints for managing student registrations")
 public class StudentController {
 
     @Autowired

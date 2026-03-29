@@ -40,10 +40,11 @@ public class StudentService {
         }
 
         String fileName = UUID.randomUUID() + "_" + resume.getOriginalFilename();
-        String filePath = uploadDir + fileName;
+        String filePath = uploadDir + fileName; // Relative path for DB
+        File dest = new File(dir.getAbsolutePath(), fileName); // Absolute path for writing
 
         try {
-            resume.transferTo(new File(filePath));
+            resume.transferTo(dest);
         } catch (IOException e) {
             throw new Exception("Resume upload failed: " + e.getMessage());
         }
