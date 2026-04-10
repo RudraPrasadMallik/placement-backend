@@ -4,6 +4,8 @@ import com.example.demo.model.Admin;
 import com.example.demo.model.Role;
 import com.example.demo.repository.AdminRepository;
 import com.example.demo.repository.UserRepository;
+import com.example.demo.service.RegistrationOptionService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -20,9 +22,19 @@ public class DataLoader implements CommandLineRunner {
     
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private RegistrationOptionService registrationOptionService;
+
+    @Value("${app.registration-options.seed-defaults:false}")
+    private boolean seedRegistrationDefaults;
     
     @Override
     public void run(String... args) throws Exception {
+        if (seedRegistrationDefaults) {
+            registrationOptionService.ensureDefaults();
+        }
+
         // Create default admin if not exists
         if (!userRepository.existsByEmail("admin@placement.com")) {
             Admin admin = new Admin();

@@ -12,6 +12,9 @@ public class Student extends User {
     private String year;
     private Double cgpa;
     private String resumeUrl;
+    private String semesterName;
+    private Double semesterPercentage;
+    private String marksheetUrl;
     private String placementStatus = "NOT_PLACED";
     
     public Student() {
@@ -57,6 +60,30 @@ public class Student extends User {
     
     public void setResumeUrl(String resumeUrl) {
         this.resumeUrl = resumeUrl;
+    }
+
+    public String getSemesterName() {
+        return semesterName;
+    }
+
+    public void setSemesterName(String semesterName) {
+        this.semesterName = semesterName;
+    }
+
+    public Double getSemesterPercentage() {
+        return semesterPercentage;
+    }
+
+    public void setSemesterPercentage(Double semesterPercentage) {
+        this.semesterPercentage = semesterPercentage;
+    }
+
+    public String getMarksheetUrl() {
+        return marksheetUrl;
+    }
+
+    public void setMarksheetUrl(String marksheetUrl) {
+        this.marksheetUrl = marksheetUrl;
     }
     
     public String getPlacementStatus() {

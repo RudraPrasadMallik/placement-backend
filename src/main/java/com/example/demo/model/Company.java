@@ -24,10 +24,14 @@ public class Company {
     private String website;
     private Integer positions;
     private String salaryPackage;
+    private Double minimumCgpa;
+    private String semester;
     private String location;
 
     @Column(length = 2000)
     private String jobDescription;
+
+    private String jdFileUrl;
 
     private String registrationStatus = "PENDING";
 
@@ -75,11 +79,20 @@ public class Company {
     public String getSalaryPackage() { return salaryPackage; }
     public void setSalaryPackage(String salaryPackage) { this.salaryPackage = salaryPackage; }
 
+    public Double getMinimumCgpa() { return minimumCgpa; }
+    public void setMinimumCgpa(Double minimumCgpa) { this.minimumCgpa = minimumCgpa; }
+
+    public String getSemester() { return semester; }
+    public void setSemester(String semester) { this.semester = semester; }
+
     public String getLocation() { return location; }
     public void setLocation(String location) { this.location = location; }
 
     public String getJobDescription() { return jobDescription; }
     public void setJobDescription(String jobDescription) { this.jobDescription = jobDescription; }
+
+    public String getJdFileUrl() { return jdFileUrl; }
+    public void setJdFileUrl(String jdFileUrl) { this.jdFileUrl = jdFileUrl; }
 
     public String getRegistrationStatus() { return registrationStatus; }
     public void setRegistrationStatus(String registrationStatus) { this.registrationStatus = registrationStatus; }

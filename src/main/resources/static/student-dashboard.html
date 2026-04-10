@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="/styles/app.css">
+</head>
+<body>
+    <main class="shell">
+        <header class="dashboard-header">
+            <div>
+                <p class="eyebrow">Student Dashboard</p>
+                <h1 id="studentName">Loading...</h1>
+                <p id="studentSubtitle" class="muted">Preparing your placement details</p>
+            </div>
+            <button id="logoutButton" class="danger-btn">Logout</button>
+        </header>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <p class="eyebrow">Opportunities</p>
+                <div id="totalCompanies" class="stat-value">0</div>
+                <p class="muted">Approved companies available for students</p>
+            </article>
+            <article class="stat-card">
+                <p class="eyebrow">Placement Status</p>
+                <div id="placementStatus" class="stat-value">-</div>
+                <p class="muted">Current placement standing</p>
+            </article>
+            <article class="stat-card">
+                <p class="eyebrow">Department</p>
+                <div id="studentDepartment" class="stat-value">-</div>
+                <p class="muted">Academic stream on your profile</p>
+            </article>
+        </section>
+
+        <section class="info-grid">
+            <article class="panel">
+                <p class="eyebrow">Profile</p>
+                <h2>Student Details</h2>
+                <div id="profileDetails"></div>
+            </article>
+            <article class="panel">
+                <p class="eyebrow">Academics</p>
+                <h2>Academic Snapshot</h2>
+                <div id="academicDetails"></div>
+            </article>
+        </section>
+
+        <section>
+            <p class="eyebrow">Open Roles</p>
+            <h2>Available Jobs and Companies</h2>
+            <div id="jobsContainer" class="jobs-grid"></div>
+        </section>
+    </main>
+    <script src="/scripts/student-dashboard.js"></script>
+</body>
+</html>

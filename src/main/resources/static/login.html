@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Placement Management Login</title>
+    <link rel="stylesheet" href="/styles/app.css">
+</head>
+<body>
+    <main class="shell">
+        <section class="hero login-layout">
+            <div class="hero-card">
+                <p class="eyebrow">College Placement Management</p>
+                <h1>Step into your placement workspace.</h1>
+                <p class="muted">
+                    Student login now opens a dedicated dashboard with profile details and approved company opportunities.
+                </p>
+                <div class="feature-list">
+                    <div class="feature">
+                        <strong>Protected access</strong>
+                        <p class="muted">Student dashboard access is checked before the page opens.</p>
+                    </div>
+                    <div class="feature">
+                        <strong>Live opportunities</strong>
+                        <p class="muted">Approved companies and job details are shown right after login.</p>
+                    </div>
+                    <div class="feature">
+                        <strong>Profile snapshot</strong>
+                        <p class="muted">Students can quickly review department, year, CGPA, and placement status.</p>
+                    </div>
+                </div>
+            </div>
+
+            <section class="panel">
+                <p class="eyebrow">Sign In</p>
+                <h2>Login to continue</h2>
+                <form id="loginForm">
+                    <label>
+                        Email
+                        <input type="email" name="email" placeholder="student@example.com" required>
+                    </label>
+                    <label>
+                        Password
+                        <input type="password" name="password" placeholder="Enter your password" required>
+                    </label>
+                    <button type="submit" class="primary-btn">Open Dashboard</button>
+                </form>
+                <p id="loginMessage" class="message"></p>
+            </section>
+        </section>
+    </main>
+    <script src="/scripts/login.js"></script>
+</body>
+</html>
